@@ -157,7 +157,7 @@ final1=merged3.dropna(subset=['name']) # this is probably useless since name has
 ```
 final1=final1.drop(['a', 'b', 'b1', 'b2', 'b3', 'c', 'd', 'e', 'f'], axis=1)
 ```
-## Step 6: Naming the columns properly and calculating who is the predominant party, how many votes it has received and what percentage of the total votes it has received.
+# Step 6: Naming the columns properly and calculating who is the predominant party, how many votes it has received and what percentage of the total votes it has received.
 ```
 candidati = {'g1': 'Klaus-Werner Iohannis'
 ,'g2': 'Theodor Paleologu'
