@@ -223,6 +223,7 @@ cmap5 = matplotlib.colors.ListedColormap(vi_cmap5)
 cmap6 = matplotlib.colors.ListedColormap(ke_cmap5)
 ```
 # Step 8 Plotting
+## Matplotlib one color for each candidate
 ```
 from matplotlib.colors import LogNorm 
 import matplotlib
@@ -240,8 +241,8 @@ cmap = matplotlib.colors.ListedColormap(colors)
 # ax
 ```
 ![image](https://github.com/moonspaish/presidential-election-plotting/assets/69521713/2c96e616-b9d7-4671-a746-0686328c97fe)
+## Matplotlib 5 colors for each of the three main candidates
 ```
-import folium
 import matplotlib.colors as colors
 idk=gdf4[gdf4["pred_party"]=="Klaus-Werner Iohannis"]
 ax = idk.plot(
@@ -276,6 +277,7 @@ ax.set_axis_off()
 ax
 ```
 ![image](https://github.com/moonspaish/presidential-election-plotting/assets/69521713/5a9ca647-bd53-4178-b2c5-aa41a745176b)
+## Folium code
 ```
 idk_1=gdf4[gdf4["pred_party"]=="Klaus-Werner Iohannis"]
 idk_dict=idk.to_json(drop_id=True)
@@ -324,6 +326,22 @@ folium.LayerControl().add_to(m)
 m
 ```
 ![image](https://github.com/moonspaish/presidential-election-plotting/assets/69521713/7a3b7213-19b1-4186-b1e3-44f06d5fca36)
+## Plotly code 
+```
+token = #put your key here
+fig = px.choropleth_mapbox(gdf3, geojson=gdf3.geometry, color=gdf3['pred_party'],
+                    locations=gdf3.index,labels=gdf3["Județ"],hover_name=gdf3['pred_absolute'],
+                    color_discrete_sequence=['yellow','red',"green"], height=800, width=1200,
+                    mapbox_style = 'open-street-map',center = dict(lat = 45.9432, lon = 24.9668),
+                    zoom = 6)
+fig.update_traces(marker_line_width = 0.1, marker_line_color = 'black')
+fig.update_geos(fitbounds="geojson", visible=False)
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+fig.update_layout(mapbox_style="outdoors", mapbox_accesstoken=token,
+                  mapbox_zoom=6, mapbox_center = {"lat": 45.9432, "lon": 24.9668})
+fig.show()
+```
+![image](https://github.com/moonspaish/presidential-election-plotting/assets/69521713/a430533b-6a24-44d1-90d4-5245bad4b6d8)
 
 # Small blog break
 ## This is if anyone tries to do something similar
