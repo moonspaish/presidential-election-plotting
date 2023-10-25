@@ -19,6 +19,7 @@ ax
 ```
 
 ![output simplu](https://github.com/moonspaish/presidential-election-plotting/assets/69521713/33e310e9-ad56-47a5-bb0d-d5e397ec1961)
+### Predominant party in each UAT but with 5 colors for each of the main candidates in equal intervals ( Territorial administrative unit ) 
 ```
 idk=gdf4[gdf4["pred_party"]=="Klaus-Werner Iohannis"]
 ax = idk.plot(
@@ -54,7 +55,7 @@ idk4.plot( ax=ax,
 ax.set_axis_off()
 ax
 ```
-## Predominant party in each UAT but with 5 colors for each of the main cadidates in equal intervals ( Teritorial administrative unit ) 
+
 ![image](https://github.com/moonspaish/presidential-election-plotting/assets/69521713/93635761-dbe9-42f5-bebd-4a780975b066)
 In my mind this would be ideal with the way folium legends are displayed, using branca colormaps
 ![image](https://github.com/moonspaish/presidential-election-plotting/assets/69521713/ed3437b0-17dc-4e27-96f7-7e23062296d3)
