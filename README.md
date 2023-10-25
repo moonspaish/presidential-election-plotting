@@ -193,7 +193,7 @@ final1.drop(['Județ','Uat'], axis=1, inplace=True)     # dropping county and UA
 final2=final1.dropna()                               
 ```
 # Step 7: Preparing for Plotting 
-## Step 7.1 Chaning POLYGON geometry to MULTIPOLYGON for plotly to work better or at all ( probably skippable if you don't intend to use plotly )
+## Step 7.1 Changing POLYGON geometry to MULTIPOLYGON for plotly to work better or at all ( probably skippable if you don't intend to use plotly )
 ```
 from shapely.geometry.multipolygon import MultiPolygon
 from shapely import wkt
@@ -226,7 +226,7 @@ cmap4 = matplotlib.colors.ListedColormap(io_cmap5)
 cmap5 = matplotlib.colors.ListedColormap(vi_cmap5)
 cmap6 = matplotlib.colors.ListedColormap(ke_cmap5)
 ```
-# Step 8 Plotting
+# Step 8: Plotting
 ## Matplotlib one color for each candidate
 ```
 from matplotlib.colors import LogNorm 
