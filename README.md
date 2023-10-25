@@ -134,6 +134,7 @@ df2["name_uat"]=df2["name_uat"].apply(lambda s: s.replace("hirseștiarges", "hir
 df2["name_uat"]=df2["name_uat"].apply(lambda s: s.replace("unousatumare", "orasunousatumare"))
 ```
 # Step 3: Preparing the geographical data
+```
 uat_localitati='ro_uat_poligon.geojson'
 gdf = geopandas.read_file(uat_localitati)
 gdf2=gdf.drop(['natcode','natLevName', 'countyId', 'countyCode',
@@ -145,8 +146,11 @@ for i in range(1, 7):
   gdf2["name_uat"]=gdf2["name_uat"].apply(lambda s: s.replace("bucurestisector" + str(i), "bucurestisectorul" + str(i) + "bucuresti"))
 gdf2["name_uat"]=gdf2["name_uat"].apply(lambda s: s.replace("hirseștiarges", "hirsestiarges"))
 gdf2["name_uat"]=gdf2["name_uat"].apply(lambda s: s.replace("orasorasunousatumare", "orasunousatumare"))
+```
 # Step 4: Merging the election data with the geo data
+```
 merged3 = df2.merge(gdf2, left_on = "name_uat", right_on = "name_uat", how="outer")
+```
 # Step 5 Removing data we don't use
 ## Step 5.1 Removing the votes from the diaspora\
 ```
